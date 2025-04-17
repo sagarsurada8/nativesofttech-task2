@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Blog</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+  }
+  
+  header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  main {
+    flex: 3;
+  }
+  
+  aside {
+    flex: 1;
+    background: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .post {
+    margin-bottom: 30px;
+  }
+  
+  .post img {
+    width: 100%;
+    height: auto;
+  }
+  
+  footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .nav ul {
+      display: none;
+      flex-direction: column;
+      background: #444;
+      padding: 10px;
+    }
+  
+    .nav.active ul {
+      display: flex;
+    }
+  
+    .nav-toggle {
+      display: block;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">My Blog</div>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle">☰</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+      <section class="blog-posts">
+        <article class="post">
+          <img src="images/post1.jpg" alt="Post image" />
+          <h2>First Blog Post</h2>
+          <p>This is a summary of the first blog post...</p>
+          <a href="#">Read more</a>
+        </article>
+
+        <article class="post">
+          <img src="images/post2.jpg" alt="Post image" />
+          <h2>Second Blog Post</h2>
+          <p>This is a summary of the second blog post...</p>
+          <a href="#">Read more</a>
+        </article>
+      </section>
+    </main>
+
+    <aside id="sidebar">
+      <h3>Sidebar</h3>
+      <ul>
+        <li><a href="#">Recent Post</a></li>
+        <li><a href="#">Category</a></li>
+        <li><a href="#">About Me</a></li>
+      </ul>
+      <button id="toggle-sidebar">Toggle Sidebar</button>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Blog. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+<script>// Toggle mobile nav menu
+  document.getElementById('nav-toggle').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('active');
+  });
+  
+  // Toggle sidebar visibility
+  document.getElementById('toggle-sidebar').addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+  });
+  </script>
+</body>
+</html>
