@@ -1,1 +1,3 @@
-# nativesofttech-task2
+name: surada sagar
+internship: web development
+company: nativesofttech
